@@ -28,6 +28,15 @@ class Dog
     DB[:conn].execute(sql)
   end 
   
+<<<<<<< HEAD
+=======
+  # def self.create(name:, breed:)
+  #   dog = Dog.new(name, breed)
+  #   dog.save 
+  #   dog
+  # end 
+  
+>>>>>>> ac7ca948baa90ffe567235407414855ccd84ab5b
   def self.new_from_db(row)
     id = row[0]
     name = row[1]
@@ -36,6 +45,7 @@ class Dog
     new_dog
   end 
   
+<<<<<<< HEAD
  def self.find_by_name(name)
     sql = <<-SQL
       SELECT *
@@ -109,3 +119,28 @@ class Dog
   end 
  
  end
+=======
+  def self.find_by_id(id)
+  sql = <<-SQL
+      SELECT * FROM dogs
+      WHERE id = ?
+    SQL
+    array = DB[:conn].execute(sql, id).first
+    self.new_from_db(row)
+  end
+  
+  # def update 
+  #   sql = <<-SQL
+  #     UPDATE dogs SET name = ?, breed = ? 
+  #     WHERE id = ?
+  #   SQL
+  #   DB[:conn].execute(sql, self.name, self.breed, self.id)
+  # end 
+  
+  def save(name: name, breed: breed)
+    dog = Dog.new(name: name, breed: breed)
+    dog
+   
+  end
+ end 
+>>>>>>> ac7ca948baa90ffe567235407414855ccd84ab5b
