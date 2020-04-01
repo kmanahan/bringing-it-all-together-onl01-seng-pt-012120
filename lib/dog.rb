@@ -36,7 +36,6 @@ class Dog
     new_dog
   end 
   
-<<<<<<< HEAD
  def self.find_by_name(name)
     sql = <<-SQL
       SELECT *
